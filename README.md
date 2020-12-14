@@ -4,12 +4,12 @@ Drag and drop file upload Js
 ## link this 2 file in your project html file 
 CSS File
 ```html
-    <link href="css/dn_dropzone.css" rel="stylesheet" >
+    <link href="css/dn_dropzone.min.css" rel="stylesheet" >
 ```
 Js file
 
 ```html
-    <link href="css/dn_dropzone.css" rel="stylesheet" >
+   <script src="js/dn_dropzone.min.js"></script>
 ```
 
 ### copy this div where you want in your project 
