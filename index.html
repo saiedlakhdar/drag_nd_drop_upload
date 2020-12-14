@@ -5,83 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="css/all.css" rel="stylesheet" >
+    <link href="css/dn_dropzone.css" rel="stylesheet" >
     <style>
-        body {
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        .drag-zone{
-            top: 50%;
-            left: 50%;
-            max-width: 300px;
-            height: 300px;
-            padding: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #cccccc;
-            border: 3px dashed green;
-            border-radius: 20px ;
-            
-        }
-
-        .drag-over{
-            border: solid green;
-        }
-        .drag-input{
-            display: none; 
-        }
-        .drag-thumbnill{
-            width: 100%;
-            height: 100%;
-            border-radius:10px ;
-            overflow: hidden;
-            background-color: gray;
-            background-size: cover ;
-            position: relative;
-        }
-
-        .drag-zone >.close{
-           
-            width: 20px;
-            height: 20px;
-            position: absolute;
-            z-index: 9999;
-            cursor: pointer;
-            border-radius: 50%;
-            border: none;
-            box-shadow: 1px 1px  rgb(107, 107, 107);
-            background-color: #000;
-            color: #fff;
-            align-items: center ;
-            justify-content: center;
-            text-align: center;
-            font-size: 13px;
-            cursor: pointer;
-        }
-        .close:hover{
-            /* content: url(x-circle.svg); */
-            color: rgb(0, 0, 0);
-            background-color: rgb(255, 255, 255);
-          
-        }
-        .drag-thumbnill::after{
-            content: attr(data-drag_label);
-            position:absolute ;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 5px 0 ;
-            color: #fff;
-            background-color: rgba(0, 0, 0,0.50);
-            font-size: 14px;
-            text-align: center;
-
-            
-        }
-
 
     </style>
     <title>Document</title>
@@ -90,7 +15,7 @@
     
 
 
-    <div class="drag-zone">
+    <div class="drag-zone dz-loader">
         <!-- <span class="drap-drop-title"> Drag Or Click to Upload</span> -->
         <!-- <span class="close"><i class="fas fa-times"></i></span>  -->
             <!-- <button type="button" class="close"> </button> -->
@@ -104,6 +29,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 <script src="js/all.min.js"></script>
-<script src="main.js"></script>
+<script src="js/dn_dropzone.js"></script>
 </body>
 </html> 

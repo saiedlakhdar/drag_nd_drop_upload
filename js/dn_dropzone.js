@@ -9,11 +9,15 @@ document.querySelectorAll(".drag-input").forEach(InputElenment => {
     // click on the browser button of input 
     dropZoneElement.addEventListener("dblclick", e => {
         InputElenment.click() ;
+        // console.log(InputElenment) ;
     });
     // when image change the title will change too 
     dropZoneElement.addEventListener("change", e => {
         if (InputElenment.files.length) {
-            updateThumbnaill(dropZoneElement, InputElenment.files[0]) ;
+
+            updateThumbnaill(dropZoneElement, InputElenment) ;
+            // console.log(InputElenment.files) ;
+            // console.log() ;
         }
     });
 
@@ -35,7 +39,7 @@ document.querySelectorAll(".drag-input").forEach(InputElenment => {
         
         if(e.dataTransfer.files.length) {
             InputElenment.files = e.dataTransfer.files ;
-            updateThumbnaill(dropZoneElement, e.dataTransfer.files[0]);
+            updateThumbnaill(dropZoneElement, InputElenment);
         };
         dropZoneElement.classList.remove("drag-over") ;
     
@@ -52,9 +56,10 @@ document.querySelectorAll(".drag-input").forEach(InputElenment => {
 
    });
    // update Thumbnail function
-   function updateThumbnaill(dropZoneElement, file) {
+   function updateThumbnaill(dropZoneElement, InputElenment) {
     let thumbnailElement = dropZoneElement.querySelector(".drag-thumbnill") ;
     let dropTitle = dropZoneElement.querySelector(".drap-drop-title") ;
+
     if (!thumbnailElement ) {
 
         // check if this selector is found 
@@ -73,10 +78,6 @@ document.querySelectorAll(".drag-input").forEach(InputElenment => {
         thumbnailCloseElement.classList.add("close") ;
         ifan.classList.add("fas", "fa-times");
 
-
-        console.log(thumbnailElement.offsetTop); 
-        thumbnailCloseElement.style.top = thumbnailElement.offsetTop + "15px" ;
-        thumbnailCloseElement.style.left = thumbnailElement.offsetLeft + "15px" ;
         // add some attributes 
         dropZoneElement.appendChild(thumbnailElement);
         dropZoneElement.appendChild(thumbnailCloseElement) ;
@@ -86,19 +87,20 @@ document.querySelectorAll(".drag-input").forEach(InputElenment => {
         // close button 
         clearthumbnail = dropZoneElement.querySelector(".close");
         clearthumbnail.addEventListener("click", e => {
-            thumbnailElement.remove() ;
+            thumbnailElement.style.backgroundImage = null ;
+            InputElenment.value = "" ;
             thumbnailCloseElement.remove() ;
-        });
- 
-     
+            thumbnailElement.remove() ;
+            
+        }) ;     
     } 
 
     // fill the data-drag_label attribute from  file 
-    thumbnailElement.dataset.drag_label = file.name ;
+    thumbnailElement.dataset.drag_label = InputElenment.files[0].name ;
     // check if the file is image 
-    if (file.type.startsWith("image/")) {
+    if (InputElenment.files[0].type.startsWith("image/")) {
         const reader =  new FileReader() ;
-        reader.readAsDataURL(file) ; 
+        reader.readAsDataURL(InputElenment.files[0]) ; 
         reader.onload = () => {
             // read image file and convert it to data:image/jpeg;base64 to show it 
             thumbnailElement.style.backgroundImage = `URL('${reader.result}')`
@@ -108,8 +110,6 @@ document.querySelectorAll(".drag-input").forEach(InputElenment => {
         thumbnailElement.style.backgroundImage = null ;
     }
    } ;
-
-
 
    // bootstrap 5 enable tooltips everywhere
 
