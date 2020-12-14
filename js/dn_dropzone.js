@@ -58,14 +58,14 @@ document.querySelectorAll(".drag-input").forEach(InputElenment => {
    // update Thumbnail function
    function updateThumbnaill(dropZoneElement, InputElenment) {
     let thumbnailElement = dropZoneElement.querySelector(".drag-thumbnill") ;
-    let dropTitle = dropZoneElement.querySelector(".drap-drop-title") ;
+    let dropTitle = dropZoneElement.querySelector(".drap-droptitle") ;
 
     if (!thumbnailElement ) {
 
         // check if this selector is found 
         if(dropTitle){
-            dropTitle.remove() ;
-        } ;
+            dropTitle.style.display = "none" ;
+        };
 
         //create span
         thumbnailCloseElement = document.createElement("button") ;
@@ -91,6 +91,7 @@ document.querySelectorAll(".drag-input").forEach(InputElenment => {
             InputElenment.value = "" ;
             thumbnailCloseElement.remove() ;
             thumbnailElement.remove() ;
+            dropTitle.style.display = "block" ;
             
         }) ;     
     } 
