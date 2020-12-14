@@ -1,7 +1,7 @@
 # drag_nd_drop_upload
 Drag and drop file upload Js
 
-## link this 2 file in your project html file 
+## link this 2 files in your project html file 
 CSS File
 ```html
     <link href="css/dn_dropzone.css" rel="stylesheet" >
